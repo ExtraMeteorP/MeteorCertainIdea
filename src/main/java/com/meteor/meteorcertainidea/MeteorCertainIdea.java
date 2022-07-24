@@ -2,10 +2,13 @@ package com.meteor.meteorcertainidea;
 
 import com.meteor.meteorcertainidea.client.ClientHandler;
 import com.meteor.meteorcertainidea.common.CommonHandler;
+import com.meteor.meteorcertainidea.common.entity.ModEntities;
+import com.meteor.meteorcertainidea.common.item.ModItems;
 import com.meteor.meteorcertainidea.common.lib.LibMisc;
 import net.minecraft.client.KeyMapping;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -28,6 +31,10 @@ public class MeteorCertainIdea {
     public static KeyMapping keyFlight;
 
     public MeteorCertainIdea(){
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModItems.REGISTER.register(eventBus);
+        ModEntities.REGISTER.register(eventBus);
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
     }

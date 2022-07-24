@@ -1,4 +1,11 @@
 package com.meteor.meteorcertainidea.common.item;
 
-public class ItemFlamescionSword {
+import net.minecraft.world.item.Item;
+
+public class ItemFlamescionSword extends Item {
+
+    public ItemFlamescionSword(Properties p_41383_) {
+        super(p_41383_);
+    }
+
 }
