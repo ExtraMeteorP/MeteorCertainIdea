@@ -25,6 +25,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> PHOENIX_FEATHER = register(LibItemName.PHOENIX_FEATHER, () -> new ItemPhoenixFeather(new Item.Properties().tab(CreativeModeTab.TAB_MISC).rarity(Rarity.UNCOMMON).stacksTo(1).setNoRepair()));
 
+    public static final RegistryObject<Item> BHPL = register(LibItemName.BHPL, () -> new ItemBHPL(new Item.Properties().tab(CreativeModeTab.TAB_MISC).rarity(Rarity.UNCOMMON).stacksTo(1).setNoRepair()));
+
+    public static final RegistryObject<Item> BHPR = register(LibItemName.BHPR, () -> new ItemBHPR(new Item.Properties().tab(CreativeModeTab.TAB_MISC).rarity(Rarity.UNCOMMON).stacksTo(1).setNoRepair()));
+
+
     private static RegistryObject<Item> register(String name, Supplier<Item> item) {
         return REGISTER.register(name, item);
     }

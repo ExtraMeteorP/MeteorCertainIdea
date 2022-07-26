@@ -2,6 +2,7 @@ package com.meteor.meteorcertainidea.client;
 
 import com.meteor.meteorcertainidea.client.model.ModModelLayers;
 import com.meteor.meteorcertainidea.client.model.ModelLifadian;
+import com.meteor.meteorcertainidea.common.entity.EntityTurtle;
 import com.meteor.meteorcertainidea.common.lib.LibMisc;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -31,12 +32,12 @@ public final class IconHandler extends RenderLayer<AbstractClientPlayer, PlayerM
             return;
         }
 
-        if(player.getVehicle() instanceof Turtle){
+        if(player.getVehicle() instanceof EntityTurtle){
             ms.pushPose();
             double time = player.tickCount + partialTicks;
             getParentModel().head.translateAndRotate(ms);
             ms.translate(0D,-2D,0D);
-            ms.mulPose(Vector3f.YP.rotationDegrees((float) time*2.5f));
+            ms.mulPose(Vector3f.YP.rotationDegrees((float) time*4.5f));
             ModelLifadian model = new ModelLifadian(mc.getEntityModels().bakeLayer(ModModelLayers.LIFADIAN));
             VertexConsumer buffer = buffers.getBuffer(model.renderType(new ResourceLocation(LibMisc.MOD_ID, "textures/model/lifadian.png")));
             model.renderToBuffer(ms, buffer, light, OverlayTexture.NO_OVERLAY, 1f, 1f, 1f, 1f);

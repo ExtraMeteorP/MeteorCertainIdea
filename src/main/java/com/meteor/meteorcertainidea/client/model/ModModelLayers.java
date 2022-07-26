@@ -9,6 +9,9 @@ public class ModModelLayers {
     public static final ModelLayerLocation MOTOR = make("motor");
     public static final ModelLayerLocation UFO = make("ufo");
     public static final ModelLayerLocation LIFADIAN = make("lifadian");
+    public static final ModelLayerLocation TURTLE = make("turtle");
+    public static final ModelLayerLocation BHPL = make("bhpl");
+    public static final ModelLayerLocation BHPR = make("bhpr");
 
     private static ModelLayerLocation make(String name) {
         return make(name, "main");

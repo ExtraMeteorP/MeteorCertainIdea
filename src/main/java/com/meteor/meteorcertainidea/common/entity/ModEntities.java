@@ -14,19 +14,37 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<EntityMotor>> MOTOR = register("motor",
             EntityType.Builder.<EntityMotor>of((type, world) -> new EntityMotor(world), MobCategory.MISC)
-            .sized(0.6F, 0.1F).fireImmune()
+            .sized(1.8F, 0.6F).fireImmune()
             .clientTrackingRange(4)
             .updateInterval(40));
 
     public static final RegistryObject<EntityType<EntityUfo>> UFO = register("ufo",
             EntityType.Builder.<EntityUfo>of((type, world) -> new EntityUfo(world), MobCategory.MISC)
-                    .sized(0.6F, 0.1F).fireImmune()
+                    .sized(1F, 0.5F).fireImmune()
                     .clientTrackingRange(4)
                     .updateInterval(40));
 
     public static final RegistryObject<EntityType<EntityPhoenix>> PHOENIX = register("phoenix",
             EntityType.Builder.<EntityPhoenix>of((type, world) -> new EntityPhoenix(world), MobCategory.MISC)
                     .sized(0.6F, 0.1F).fireImmune()
+                    .clientTrackingRange(4)
+                    .updateInterval(40));
+
+    public static final RegistryObject<EntityType<EntityTurtle>> TURTLE = register("turtle",
+            EntityType.Builder.<EntityTurtle>of((type, world) -> new EntityTurtle(world), MobCategory.MISC)
+                    .sized(1F, 0.3F).fireImmune()
+                    .clientTrackingRange(4)
+                    .updateInterval(40));
+
+    public static final RegistryObject<EntityType<EntityBHPL>> BHPL = register("bhpl",
+            EntityType.Builder.<EntityBHPL>of((type, world) -> new EntityBHPL(world), MobCategory.MISC)
+                    .sized(1F, 0.4F).fireImmune()
+                    .clientTrackingRange(4)
+                    .updateInterval(40));
+
+    public static final RegistryObject<EntityType<EntityBHPR>> BHPR = register("bhpr",
+            EntityType.Builder.<EntityBHPR>of((type, world) -> new EntityBHPR(world), MobCategory.MISC)
+                    .sized(1F, 0.4F).fireImmune()
                     .clientTrackingRange(4)
                     .updateInterval(40));
 

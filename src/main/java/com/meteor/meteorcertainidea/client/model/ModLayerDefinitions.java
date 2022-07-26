@@ -12,6 +12,9 @@ public class ModLayerDefinitions {
         consumer.accept(ModModelLayers.MOTOR, () -> ModelMotor.createBodyLayer());
         consumer.accept(ModModelLayers.UFO, () -> ModelUfo.createBodyLayer());
         consumer.accept(ModModelLayers.LIFADIAN, () -> ModelLifadian.createBodyLayer());
+        consumer.accept(ModModelLayers.TURTLE, () -> ModelTurtle.createBodyLayer());
+        consumer.accept(ModModelLayers.BHPL, () -> ModelBHPL.createBodyLayer());
+        consumer.accept(ModModelLayers.BHPR, () -> ModelBHPR.createBodyLayer());
     }
 
 }

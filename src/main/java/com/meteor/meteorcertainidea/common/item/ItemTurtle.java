@@ -1,5 +1,6 @@
 package com.meteor.meteorcertainidea.common.item;
 
+import com.meteor.meteorcertainidea.common.entity.EntityTurtle;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EntityType;
@@ -18,8 +19,8 @@ public class ItemTurtle extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getVehicle() == null){
-            Turtle turtle = new Turtle(EntityType.TURTLE, level);
-            turtle.getPersistentData().putBoolean("turtle_turtle", true);
+            EntityTurtle turtle = new EntityTurtle(level);
+            //turtle.getPersistentData().putBoolean("turtle_turtle", true);
             turtle.setPos(player.getX(), player.getY(), player.getZ());
             if(!level.isClientSide()){
                 level.addFreshEntity(turtle);
