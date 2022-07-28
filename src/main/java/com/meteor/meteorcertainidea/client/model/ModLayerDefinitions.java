@@ -15,6 +15,8 @@ public class ModLayerDefinitions {
         consumer.accept(ModModelLayers.TURTLE, () -> ModelTurtle.createBodyLayer());
         consumer.accept(ModModelLayers.BHPL, () -> ModelBHPL.createBodyLayer());
         consumer.accept(ModModelLayers.BHPR, () -> ModelBHPR.createBodyLayer());
+        consumer.accept(ModModelLayers.PAIMONCARRIAGE, () -> ModelPaimonCarriage.createBodyLayer());
+        consumer.accept(ModModelLayers.PAIMON, () -> ModelPaimon.createBodyLayer());
     }
 
 }

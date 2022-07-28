@@ -44,16 +44,16 @@ public final class IconHandler extends RenderLayer<AbstractClientPlayer, PlayerM
             ms.popPose();
         }
 
-        BakedModel model = MiscellaneousModels.INSTANCE.icon0;
-
-        ms.pushPose();
-        getParentModel().head.translateAndRotate(ms);
-        ms.mulPose(Vector3f.XN.rotationDegrees(180F));
-        float s = 0.5f;
-        ms.scale(s,s,s);
-        ms.translate(-0.5D, 0.8D, -0.5D);
-        Minecraft.getInstance().getBlockRenderer().getModelRenderer().renderModel(ms.last(), buffers.getBuffer(Sheets.translucentItemSheet()), null, model, 1, 1, 1, 0xF000F0, OverlayTexture.NO_OVERLAY);
-        ms.popPose();
+//        BakedModel model = MiscellaneousModels.INSTANCE.icon0;
+//
+//        ms.pushPose();
+//        getParentModel().head.translateAndRotate(ms);
+//        ms.mulPose(Vector3f.XN.rotationDegrees(180F));
+//        float s = 0.5f;
+//        ms.scale(s,s,s);
+//        ms.translate(-0.5D, 0.8D, -0.5D);
+//        Minecraft.getInstance().getBlockRenderer().getModelRenderer().renderModel(ms.last(), buffers.getBuffer(Sheets.translucentItemSheet()), null, model, 1, 1, 1, 0xF000F0, OverlayTexture.NO_OVERLAY);
+//        ms.popPose();
     }
 
 }

@@ -9,4 +9,8 @@ public class LibItemName {
     public static final String PHOENIX_FEATHER = "phoenix_feather";
     public static final String BHPL = "bhpl";
     public static final String BHPR = "bhpr";
+    public static final String PAIMONCARRIAGE = "paimoncarriage";
+    public static final String PAIMON = "paimon";
+    public static final String COIN = "coin";
+
 }

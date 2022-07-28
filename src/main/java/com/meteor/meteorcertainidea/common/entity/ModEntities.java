@@ -48,6 +48,18 @@ public class ModEntities {
                     .clientTrackingRange(4)
                     .updateInterval(40));
 
+    public static final RegistryObject<EntityType<EntityPaimonCarriage>> PAIMONCARRIAGE = register("paimoncarriage",
+            EntityType.Builder.<EntityPaimonCarriage>of((type, world) -> new EntityPaimonCarriage(world), MobCategory.MISC)
+                    .sized(1F, 0.4F).fireImmune()
+                    .clientTrackingRange(4)
+                    .updateInterval(40));
+
+    public static final RegistryObject<EntityType<EntityPaimon>> PAIMON = register("paimon",
+            EntityType.Builder.<EntityPaimon>of((type, world) -> new EntityPaimon(world), MobCategory.MISC)
+                    .sized(1F, 0.4F).fireImmune()
+                    .clientTrackingRange(4)
+                    .updateInterval(40));
+
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String name, EntityType.Builder<T> builder) {
         return REGISTER.register(name, () -> builder.build(name));
     }

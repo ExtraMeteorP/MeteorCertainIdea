@@ -23,7 +23,7 @@ public class NetworkHandler {
 
     public static void init() {
         int i = 0;
-        CHANNEL.registerMessage(i++, PacketMountableUpdate.class, PacketMountableUpdate::encode, PacketMountableUpdate::decode,
+        CHANNEL.registerMessage(i++, PacketMountableUpdate.class, PacketMountableUpdate::encode,PacketMountableUpdate::decode,
                 makeServerBoundHandler(PacketMountableUpdate::handle));
     }
 

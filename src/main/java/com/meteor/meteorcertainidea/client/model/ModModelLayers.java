@@ -12,6 +12,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation TURTLE = make("turtle");
     public static final ModelLayerLocation BHPL = make("bhpl");
     public static final ModelLayerLocation BHPR = make("bhpr");
+    public static final ModelLayerLocation PAIMONCARRIAGE = make("paimoncarriage");
+    public static final ModelLayerLocation PAIMON = make("paimon");
 
     private static ModelLayerLocation make(String name) {
         return make(name, "main");

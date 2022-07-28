@@ -61,6 +61,8 @@ public class ClientHandler {
         EntityRenderers.register(ModEntities.TURTLE.get(), RenderTurtle::new);
         EntityRenderers.register(ModEntities.BHPL.get(), RenderBHPL::new);
         EntityRenderers.register(ModEntities.BHPR.get(), RenderBHPR::new);
+        EntityRenderers.register(ModEntities.PAIMON.get(), RenderPaimon::new);
+        EntityRenderers.register(ModEntities.PAIMONCARRIAGE.get(), RenderPaimonCarriage::new);
     }
 
 }
