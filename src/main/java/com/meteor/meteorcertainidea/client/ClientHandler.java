@@ -16,6 +16,7 @@ import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 
@@ -50,6 +51,11 @@ public class ClientHandler {
                     steerable.updateInput(MeteorCertainIdea.keyForward.isDown(), MeteorCertainIdea.keyBackward.isDown(), MeteorCertainIdea.keyLeft.isDown(), MeteorCertainIdea.keyRight.isDown(), MeteorCertainIdea.keyFlight.isDown(), MeteorCertainIdea.keyUp.isDown());
                     NetworkHandler.CHANNEL.sendToServer(new PacketMountableUpdate(MeteorCertainIdea.keyForward.isDown(), MeteorCertainIdea.keyBackward.isDown(), MeteorCertainIdea.keyLeft.isDown(), MeteorCertainIdea.keyRight.isDown(),MeteorCertainIdea.keyFlight.isDown(), MeteorCertainIdea.keyUp.isDown()));
                 }
+            }
+        });
+        bus.addListener((RenderGameOverlayEvent.Post e) -> {
+            if (e.getType() == RenderGameOverlayEvent.ElementType.ALL) {
+                HUDHandler.onDrawScreenPost(e.getMatrixStack(), e.getPartialTicks());
             }
         });
     }

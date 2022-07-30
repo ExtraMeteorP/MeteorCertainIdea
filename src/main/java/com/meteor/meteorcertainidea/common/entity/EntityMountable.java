@@ -9,7 +9,6 @@ import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -18,6 +17,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.DismountHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -42,8 +42,8 @@ public class EntityMountable extends Entity {
 
     public int ridingTicks = 0;
 
-    private float deltaRotation;
-    private float invFriction;
+    protected float deltaRotation;
+    protected float invFriction;
     private int lerpSteps;
     private double lerpX;
     private double lerpY;
@@ -83,9 +83,11 @@ public class EntityMountable extends Entity {
     public void tick() {
         super.tick();
         this.tickLerp();
-        if(getPassengers().isEmpty()){
+
+        if(this.tickCount > 5 && getPassengers().isEmpty()){
             remove(RemovalReason.KILLED);
         }
+
         if (this.isControlledByLocalInstance()) {
             this.floatBoat();
             if (this.level.isClientSide) {
@@ -135,7 +137,7 @@ public class EntityMountable extends Entity {
         this.spaceInputDown = spaceInputDown;
     }
 
-    private void floatBoat() {
+    protected void floatBoat() {
         double d0 = (double)-0.04F;
         double d1 = this.isNoGravity() ? 0.0D : (double)-0.04F;
         double d2 = 0.0D;
@@ -148,7 +150,6 @@ public class EntityMountable extends Entity {
             Vec3 vec31 = this.getDeltaMovement();
             this.setDeltaMovement(vec31.x, (vec31.y + d2 * 0.06153846016296973D) * 0.75D, vec31.z);
         }
-
     }
 
     public void controlBoat() {
@@ -209,6 +210,11 @@ public class EntityMountable extends Entity {
             }
 
         }
+    }
+
+    @Override
+    protected void checkFallDamage(double p_38307_, boolean p_38308_, BlockState p_38309_, BlockPos p_38310_) {
+
     }
 
     @Override
@@ -296,14 +302,14 @@ public class EntityMountable extends Entity {
     }
 
     @Override
-    public Packet<?> getAddEntityPacket() {
-        return new ClientboundAddEntityPacket(this);
-    }
-
-    @Override
     protected void readAdditionalSaveData(CompoundTag tag) {
         setRotation(tag.getFloat(TAG_ROTATION));
         setPitch(tag.getFloat(TAG_PITCH));
+    }
+
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return new ClientboundAddEntityPacket(this);
     }
 
     public float getRotation() {
